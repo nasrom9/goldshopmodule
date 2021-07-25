@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gold_shop_gold_shop,gold_shop.gold_shop,model_gold_shop_gold_shop,base.group_user,1,1,1,1
+access_transfers_data,access_transfers_data,model_transfers_data,base.group_user,1,1,1,1
