@@ -2,11 +2,20 @@ from collections import defaultdict
 from odoo import api, models, fields, _
 from datetime import datetime
 
+
+
 class trasnfersData(models.Model):
     _name = 'transfers.data'
     _rec_name = 'number_seq'
 
-    owner = fields.Char(required= True)
+    @api.depends()
+    def get_gold_count(self):
+        for record in self:
+            record.gold_count = self.env['transfers.data'].search_count(
+                [('id', '=', self.id)])
+
+
+    owner = fields.Many2one('res.partner', required= True)
     date = fields.Date(default= datetime.today(), required = True)
     date_of_sale = fields.Date()
     sale_price = fields.Integer()
@@ -23,6 +32,8 @@ class trasnfersData(models.Model):
     number_seq = fields.Text()
 
 
+
+
     @api.model
     def create(self, vals):
         if vals.get('number_seq', _('New')) == _('New'):
@@ -33,3 +44,11 @@ class trasnfersData(models.Model):
     def get_net_weight(self):
         for rec in self:
             rec.net_weight = (rec.weight + rec.specimen_weight) / 875 * rec.calibre
+
+
+class contactInherit(models.Model):
+    _inherit = ['res.partner']
+
+    gold_count = fields.Integer(compute=trasnfersData.get_gold_count())
+    namen = fields.Char()
+
