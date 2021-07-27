@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="partners_view_form" model="ir.ui.view">
+            <field name="name">partners_view_form</field>
+            <field name="model">partner.details</field>
+            <field name="arch" type="xml">
+                <form string="partners_form">
+                    <sheet>
+                        <group>
+                            <field name="partner_name"/>
+                            <field name="phone_number"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="partners_tree_view" model="ir.ui.view">
+            <field name="name">view.partners.tree</field>
+            <field name="model">partner.details</field>
+            <field name="arch" type="xml">
+                <tree string="Partners">
+                    <field name="partner_name"/>
+                    <field name="phone_number"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="partners_search_view" model="ir.ui.view">-->
+<!--            <field name="name">view.partners.search</field>-->
+<!--            <field name="model">partner.details</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="ModelTitle">-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Partner" name="partner_name" domain="[]"-->
+<!--                                context="{'group_by':''}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="partners_action" model="ir.actions.act_window">
+            <field name="name">Partners</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">partner.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Partners" id="partners_menu" parent="root_menu" action="partners_action"/>
+
+    </data>
+</odoo>
