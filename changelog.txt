@@ -1,0 +1,9 @@
+v14.1.1:
+    -added this changelog file for the first time
+    -modified the sequence of the bars model so that it contains the date within it.
+     it also resets daily. Before it wasn't a part of the form view. Now it is.
+    -Gold bars can now be grouped by: 1/owner, 2/date
+    -added a smart button from partners' form leading to bars menu. In it there's a number indicating the actual
+     number of bars for the specific partner
+    -added three states and two buttons indicating the state of the bar (sold or not or billed)
+    -added a

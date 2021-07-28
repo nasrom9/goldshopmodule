@@ -7,7 +7,18 @@
             <field name="model">partner.details</field>
             <field name="arch" type="xml">
                 <form string="partners_form">
+                    <header>
+
+                    </header>
                     <sheet>
+                        <div class="oe_button_box">
+                            <button name="smart_button_gold_object" class="oe_stat_button" type="object" icon="fa-sitemap">
+                                <field name="bars_count" string="Specimens" widget="statinfo"/>
+                            </button>
+                            <button name="smart_button_gold_object_sold" class="oe_stat_button" type="object" icon="fa-sitemap">
+                                <field name="sold_bars_count" string="Sold Specimens" widget="statinfo"/>
+                            </button>
+                        </div>
                         <group>
                             <field name="partner_name"/>
                             <field name="phone_number"/>
@@ -47,6 +58,8 @@
             <field name="res_model">partner.details</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+
 
         <menuitem name="Partners" id="partners_menu" parent="root_menu" action="partners_action"/>
 
